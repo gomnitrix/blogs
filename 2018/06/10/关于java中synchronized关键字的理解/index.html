@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="omnitrix&#39;s Blog">
 <meta property="og:description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的线程进入阻塞后再也没被唤醒。 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/结果.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/结果2.jpg">
-<meta property="og:updated_time" content="2018-06-10T11:46:53.634Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/2.jpg">
+<meta property="og:updated_time" content="2018-06-10T11:53:54.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于java中synchronized关键字的理解">
 <meta name="twitter:description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的线程进入阻塞后再也没被唤醒。 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/结果.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/1.jpg">
 
 
 
@@ -370,19 +370,19 @@
 </li>
 </ul>
 <p>然后定义一个LockAble类，其内部有一个synchrozied关键字修饰的method方法：   </p>
-<pre><code>class LockAble{
-    public synchronized void method(String name){
-        System.out.println(name+&quot; start a sync method&quot;);
-        try {
-            Thread.sleep(200);
-        }
-        catch (InterruptedException e){
+<pre><code>class LockAble{   
+    public synchronized void method(String name){   
+        System.out.println(name+&quot; start a sync method&quot;);   
+        try {   
+            Thread.sleep(200);   
+        }   
+        catch (InterruptedException e){   
 
-        }
-        System.out.println(name+&quot; end a sync method&quot;);
-    }
-}
-</code></pre><p>这样，当实例化一个Test类（相当于创建一个新的线程）后，Test对象内部会初始化一个LockAble类，再在线程中调用method方法.<br>结果如下:<br><img src="/2018/06/10/关于java中synchronized关键字的理解/结果.jpg" alt=""><br>可以看到虽然test1先开始执行，但在它结束之前，test2也开始执行synchronized方法，原因是每个Test类的对象中的LockAble域不是同一个对象，可见并不能使得不同的对象执行顺序互斥<br>要实现不同对象执行顺序互斥，则需要将对象锁变为类锁，即对静态方法使用synchronized关键字修饰，将Test中的LockAble私有域设置为<strong>static</strong>，则此时每个Test类的对象都共享一个LockAble对象，能达到互斥的效果<br><img src="/2018/06/10/关于java中synchronized关键字的理解/结果2.jpg" alt="">    </p>
+        }   
+        System.out.println(name+&quot; end a sync method&quot;);   
+    }   
+}    
+</code></pre><p>这样，当实例化一个Test类（相当于创建一个新的线程）后，Test对象内部会初始化一个LockAble类，再在线程中调用method方法.<br>结果如下:<br><img src="/2018/06/10/关于java中synchronized关键字的理解/1.jpg" alt=""><br>可以看到虽然test1先开始执行，但在它结束之前，test2也开始执行synchronized方法，原因是每个Test类的对象中的LockAble域不是同一个对象，可见并不能使得不同的对象执行顺序互斥<br>要实现不同对象执行顺序互斥，则需要将对象锁变为类锁，即对静态方法使用synchronized关键字修饰，将Test中的LockAble私有域设置为<strong>static</strong>，则此时每个Test类的对象都共享一个LockAble对象，能达到互斥的效果<br><img src="/2018/06/10/关于java中synchronized关键字的理解/2.jpg" alt="">    </p>
 <ul>
 <li><ol start="2">
 <li>对于synchronized关键字修饰的代码中，线程阻塞和唤醒的理解<br>在开始写lab6的时候，用synchronized关键字修饰的代码中调用wait()和notifyAll()时，由于理解不透彻，导致各个线程其实是在不同的对象中阻塞的，所以总会有几个线程阻塞后再也不能被唤醒，在理解了第1点后，代码中有阻塞和唤醒的地方，要确保所有线程是在同一个对象的sync方法中运行的。</li>
