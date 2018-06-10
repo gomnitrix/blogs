@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,多线程," />
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="omnitrix&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启动执行。当多个线程访问同一个">
+<meta name="keywords" content="java,多线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于java中synchronized关键字的理解">
+<meta property="og:url" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/index.html">
 <meta property="og:site_name" content="omnitrix&#39;s Blog">
+<meta property="og:description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启动执行。当多个线程访问同一个">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/结果.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/结果2.jpg">
+<meta property="og:updated_time" content="2018-06-10T11:40:59.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="omnitrix&#39;s Blog">
+<meta name="twitter:title" content="关于java中synchronized关键字的理解">
+<meta name="twitter:description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启动执行。当多个线程访问同一个">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/结果.jpg">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/"/>
 
 
 
 
 
-  <title>omnitrix's Blog</title>
+  <title>关于java中synchronized关键字的理解 | omnitrix's Blog</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,9 +251,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -276,9 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/10/关于java中synchronized关键字的理解/" itemprop="url">关于java中synchronized关键字的理解</a></h1>
+          <h1 class="post-title" itemprop="name headline">关于java中synchronized关键字的理解</h1>
         
 
         <div class="post-meta">
@@ -334,6 +339,9 @@
           
 
 		  
+			<span class="post-meta-divider">|</span>
+			<span id="busuanzi_value_page_pv"></span>reading
+		  
 		  
           
 
@@ -352,9 +360,7 @@
       
 
       
-        
-          
-            <p>这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的</p>
+        <p>这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的</p>
 <p>关于synchronized关键字：<br>在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启动执行。<br>当多个线程访问同一个可变资源，对其读取或者写入时，就有可能出现<em>竞争</em>。这时需要一些措施来保证线程安全当某段代码需要互斥时，可以用 synchronized 关键字修饰。<br>而<strong>synchronized关键字锁定的是调用该方法的对象</strong>。   </p>
 <ul>
 <li><ol>
@@ -375,8 +381,6 @@
 </li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -391,266 +395,38 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/我的博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="高博为">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="omnitrix's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/09/我的博客/" itemprop="url">我的博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-09T20:12:59+08:00">
-                2018-06-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/java/" rel="tag"># java</a>
           
-            
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
           
-
-          
-          
-
-          
-
-		  
-		  
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这是我第一次搭建自己的博客。<br>希望以后自己可以抓紧大学的最后两年时间，无论是技术还是生活都能逐渐变好<br>希望自己以后能过的更开心一些</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="高博为">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="omnitrix's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/09/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-09T19:29:19+08:00">
-                2018-06-09
-              </time>
+              <a href="/2018/06/09/我的博客/" rel="next" title="我的博客">
+                <i class="fa fa-chevron-left"></i> 我的博客
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-		  
-		  
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -660,10 +436,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -671,6 +448,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -927,6 +708,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
