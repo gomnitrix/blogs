@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java,多线程," />
+  <meta name="keywords" content="java," />
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的线程进入阻塞后再也没被唤醒。 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启">
-<meta name="keywords" content="java,多线程">
+<meta name="description" content="关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于java中synchronized关键字的理解">
-<meta property="og:url" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/index.html">
+<meta property="og:title" content="浅析Java中的final修饰符">
+<meta property="og:url" content="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/index.html">
 <meta property="og:site_name" content="omnitrix&#39;s Blog">
-<meta property="og:description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的线程进入阻塞后再也没被唤醒。 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启">
+<meta property="og:description" content="关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/1.PNG">
-<meta property="og:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/2.PNG">
-<meta property="og:updated_time" content="2018-06-10T12:06:30.843Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/1.PNG">
+<meta property="og:updated_time" content="2018-06-12T14:12:20.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于java中synchronized关键字的理解">
-<meta name="twitter:description" content="这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的线程进入阻塞后再也没被唤醒。 关于synchronized关键字：在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/1.PNG">
+<meta name="twitter:title" content="浅析Java中的final修饰符">
+<meta name="twitter:description" content="关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/1.PNG">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/"/>
 
 
 
 
 
-  <title>关于java中synchronized关键字的理解 | omnitrix's Blog</title>
+  <title>浅析Java中的final修饰符 | omnitrix's Blog</title>
   
 
 
@@ -266,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/10/关于java中synchronized关键字的理解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="高博为">
@@ -283,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于java中synchronized关键字的理解</h1>
+          <h1 class="post-title" itemprop="name headline">浅析Java中的final修饰符</h1>
         
 
         <div class="post-meta">
@@ -295,8 +294,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-10T16:36:11+08:00">
-                2018-06-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-12T21:12:11+08:00">
+                2018-06-12
               </time>
             
 
@@ -360,33 +359,34 @@
       
 
       
-        <p>这次软件构造的lab6是关于多线程的理解的，在试验之前自己从来没有自己写过多线程程序，所以在实验中遇到了不少困难，尤其是关于synchronized关键字的理解错误导致开始时总会有几只猴子的线程进入阻塞后再也没被唤醒。</p>
-<p>关于synchronized关键字：<br>在JAVA多线程编程中，将需要并发执行的代码放在Thread类的run方法里面，然后创建多个Thread类的对象，调用start()方法，线程启动执行。<br>当多个线程访问同一个可变资源，对其读取或者写入时，就有可能出现<em>竞争</em>。这时需要一些措施来保证线程安全当某段代码需要互斥时，可以用 synchronized 关键字修饰。<br>而<strong>synchronized关键字锁定的是调用该方法的对象</strong>。<br><a id="more"></a></p>
-<ul>
-<li><ol>
-<li><em>synchronized</em>关键字修饰方法后，不能使调用该方法的多个对象在执行顺序上互斥<br>定义一个Test类，其实现了<em>Runable</em>接口：   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Test implements Runnable &#123;   </span><br><span class="line">    private String name;  </span><br><span class="line">    private LockAble lockAble = new LockAble();  </span><br><span class="line">	</span><br><span class="line">    public Test(String name) &#123;  </span><br><span class="line">        this.name = name;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    @Override  </span><br><span class="line">    public void run() &#123;  </span><br><span class="line">        lockAble.method(name);  </span><br><span class="line">    &#125;  </span><br><span class="line">    public static void main(String[] args)&#123;  </span><br><span class="line">        Thread test1 = new Thread(new Test(&quot;test1&quot;));  </span><br><span class="line">        Thread test2 = new Thread(new Test(&quot;test2&quot;));  </span><br><span class="line">        test1.start();  </span><br><span class="line">        test2.start();  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <p>　　关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。<br><a id="more"></a>   </p>
+<ol>
+<li>final修饰类<br>当final关键字用来修饰一个类时，这个类将不能被继承。而final类中的成员变量不会受影响，可以根据需要将成员变量设置为final。<br>另外<strong>final类中的成员方法会被隐式的指定为final方法</strong>。这是我之前没有了解的。<br>在使用final修饰类的时候，还是应该注意谨慎选择，除非确定这个类真的在以后不会用来继承或者出于安全的考虑，尽量不要将类设计为final类。   </li>
+<li>final修饰方法<br>在使用final修饰方法时，一般是出于禁止该方法在以后被重写，即在子类中被覆盖(Override)。早期Java版本中，final方法会被转化为内嵌调用，但当方法过于庞大时<br>可能看不到这种转化带来的性能提升，现在的Java版本中已经不需要使用final方法进行这些优化了。<br>另外，<em>类的private方法会被隐式的指定为final方法</em>   </li>
+<li>final修饰变量<br>当final修饰一个变量时，首先如果该变量是一个原始类型，则其值一旦指定便不可更改。如果是引用类型的变量，则在指定引用后<br>便不可以让其指向另一个变量。    </li>
 </ol>
+<ul>
+<li>1 当final修饰类中的成员变量时，成员变量必须在定义时或构造器中被赋值(局部变量只需在使用前赋值即可)。<br>final变量和普通变量有一些区别：   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args)  &#123;</span><br><span class="line">        String a = &quot;hello2&quot;;  </span><br><span class="line">        final String b = &quot;hello&quot;;</span><br><span class="line">        String d = &quot;hello&quot;;</span><br><span class="line">        String c = b + 2;  </span><br><span class="line">        String e = d + 2;</span><br><span class="line">        System.out.println((a == c));</span><br><span class="line">        System.out.println((a == e));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>然后定义一个LockAble类，其内部有一个synchrozied关键字修饰的method方法：   </p>
-<pre><code>class LockAble{   
-    public synchronized void method(String name){   
-        System.out.println(name+&quot; start a sync method&quot;);   
-        try {   
-            Thread.sleep(200);   
-        }   
-        catch (InterruptedException e){   
-
-        }   
-        System.out.println(name+&quot; end a sync method&quot;);   
-    }   
-}    
-</code></pre><p>这样，当实例化一个Test类（相当于创建一个新的线程）后，Test对象内部会初始化一个LockAble类，再在线程中调用method方法.<br>结果如下:<br><img src="/2018/06/10/关于java中synchronized关键字的理解/1.PNG" alt=""><br>可以看到虽然test1先开始执行，但在它结束之前，test2也开始执行synchronized方法，原因是每个Test类的对象中的LockAble域不是同一个对象，可见并不能使得不同的对象执行顺序互斥<br>要实现不同对象执行顺序互斥，则需要将对象锁变为类锁，即对静态方法使用synchronized关键字修饰，将Test中的LockAble私有域设置为<strong>static</strong>，则此时每个Test类的对象都共享一个LockAble对象，能达到互斥的效果<br><img src="/2018/06/10/关于java中synchronized关键字的理解/2.PNG" alt="">    </p>
+<p>结果是第一个输出为true，而第二个为false，这是因为final变量如果是基本类型或者String，则如果在编译期间就能得到值，便会被编译器<br>作为编译期常量处理。这样在需要使用这个变量时便相当于直接访问这个常量而不需要运行时确定。   </p>
 <ul>
-<li><ol start="2">
-<li>对于synchronized关键字修饰的代码中，线程阻塞和唤醒的理解<br>在开始写lab6的时候，用synchronized关键字修饰的代码中调用wait()和notifyAll()时，由于理解不透彻，导致各个线程其实是在不同的对象中阻塞的，所以总会有几个线程阻塞后再也不能被唤醒，在理解了第1点后，代码中有阻塞和唤醒的地方，要确保所有线程是在同一个对象的sync方法中运行的。</li>
-</ol>
+<li><p>2 要注意final修饰的引用型变量是可以改变其值的<br>被final修饰的引用型变量可以在运行期间改变其值：     </p>
+<pre><code>class MyTest {
+
+  public MyTest() {
+  }
+
+  public final List&lt;Integer&gt; alist = new ArrayList&lt;&gt;();
+
+  public static void main(String[] args) {
+      MyTest subTest = new MyTest();
+      List&lt;Integer&gt; mylist = subTest.alist;
+      mylist.add(1);
+      System.out.println(mylist);
+  }
+}    
+</code></pre><p>这段测试代码的运行结果如下：<br><img src="/2018/06/12/浅析Java中的final修饰符/1.PNG" alt="运行结果"><br>因为被final修饰的引用型变量只是不能在初次赋值指向别的对象，但其本身如果是可变的则可以改变自身的内容。</p>
 </li>
 </ul>
 
@@ -408,8 +408,6 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/多线程/" rel="tag"># 多线程</a>
-          
         </div>
       
 
@@ -421,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/09/我的博客/" rel="next" title="我的博客">
-                <i class="fa fa-chevron-left"></i> 我的博客
+              <a href="/2018/06/10/关于java中synchronized关键字的理解/" rel="next" title="关于java中synchronized关键字的理解">
+                <i class="fa fa-chevron-left"></i> 关于java中synchronized关键字的理解
               </a>
             
           </div>
@@ -430,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/12/浅析Java中的final修饰符/" rel="prev" title="浅析Java中的final修饰符">
-                浅析Java中的final修饰符 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
