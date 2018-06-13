@@ -89,7 +89,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/06/13/对于Java中HashCode-方法的理解/2.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/06/13/对于Java中HashCode-方法的理解/3.PNG">
-<meta property="og:updated_time" content="2018-06-13T12:39:55.770Z">
+<meta property="og:updated_time" content="2018-06-13T12:42:06.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对于Java中HashCode()和equals()方法的理解">
 <meta name="twitter:description" content="简单记录一下自己复习过程中对于HashCode方法的一点理解Java中所有对象的超类 java.lang.Object 有两个非常重要的方法:public boolean equals(Object obj)public int hashCode()这两个方法是非常重要的，尤其是当使用HashMap等数据结构存储自定义对象时。">
@@ -380,8 +380,7 @@
 <pre><code>for (List&lt;String&gt; l : set){
     System.out.println(set.contains(l));
 }
-</code></pre><p><img src="/2018/06/13/对于Java中HashCode-方法的理解/3.PNG" alt="">   </p>
-<p>854/5000<br>List <string>是一个可变对象。 在像List这样的集合类的标准Java实现中，突变会影响equals（）和hashCode（）的结果。<br> 当列表首先放入HashSet中时，它将存储在当时与其hashCode（）结果相对应的哈希桶中。 当列表随后发生变化时，其hashCode（）会发生变化，但HashSet没有意识到它应该移动到不同的存储桶中。<br> 所以它再也找不到了。 当equals（）和hashCode（）可能受突变影响时，我们可以打破使用该对象作为关键字的哈希表的不变性。   </string></p>
+</code></pre><p><img src="/2018/06/13/对于Java中HashCode-方法的理解/3.PNG" alt=""><br>List\&lt;String>是一个可变对象。 在像List这样的集合类的标准Java实现中，突变会影响equals（）和hashCode（）的结果。当列表首先放入HashSet中时，它将存储在当时与其hashCode（）结果相对应的哈希桶中。 当列表随后发生变化时，其hashCode（）会发生变化，但HashSet没有意识到它应该移动到不同的存储桶中。所以它再也找不到了。 当equals（）和hashCode（）可能受突变影响时，我们可以打破使用该对象作为关键字的哈希表的不变性。   </p>
 <ul>
 <li>注意：如果将可变对象用作集合元素，必须非常小心。 如果对象的值以影响equals()比较的方式更改，而对象是集合中的元素，则集合的行为可能会超出预期。</li>
 </ul>
