@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,概念," />
 
 
 
@@ -79,14 +79,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="对于编程思想中很常见的委托(Delegation)之前虽然大概理解，但对于一些细节上的区别还是有些模糊，今天复习时恰好看到，将一些自己的简单理解记录下来，以下内容有自己的理解，也有网上查阅资料后的结果。委派这个概念其实平时写代码时大都有用到，只是没有刻意去理解，这个概念可以细分为：">
+<meta name="keywords" content="java,概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于委托(Delegation)的个人理解">
+<meta property="og:url" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/index.html">
 <meta property="og:site_name" content="omnitrix&#39;s Blog">
+<meta property="og:description" content="对于编程思想中很常见的委托(Delegation)之前虽然大概理解，但对于一些细节上的区别还是有些模糊，今天复习时恰好看到，将一些自己的简单理解记录下来，以下内容有自己的理解，也有网上查阅资料后的结果。委派这个概念其实平时写代码时大都有用到，只是没有刻意去理解，这个概念可以细分为：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-10T13:02:14.129Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/5.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/6.png">
+<meta property="og:updated_time" content="2018-06-16T10:16:20.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="关于委托(Delegation)的个人理解">
+<meta name="twitter:description" content="对于编程思想中很常见的委托(Delegation)之前虽然大概理解，但对于一些细节上的区别还是有些模糊，今天复习时恰好看到，将一些自己的简单理解记录下来，以下内容有自己的理解，也有网上查阅资料后的结果。委派这个概念其实平时写代码时大都有用到，只是没有刻意去理解，这个概念可以细分为：">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/1.png">
 
 
 
@@ -116,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/"/>
 
 
 
 
 
-  <title>tags | omnitrix's Blog</title>
+  <title>关于委托(Delegation)的个人理解 | omnitrix's Blog</title>
   
 
 
@@ -247,40 +258,180 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/16/关于委托-Delegation-的个人理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="高博为">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="omnitrix's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                3 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/java/" style="font-size: 30px; color: #111">java</a> <a href="/tags/多线程/" style="font-size: 12px; color: #ccc">多线程</a> <a href="/tags/概念/" style="font-size: 12px; color: #ccc">概念</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">关于委托(Delegation)的个人理解</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-16T17:32:40+08:00">
+                2018-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+		  
+			<span class="post-meta-divider">|</span>
+			<span id="busuanzi_value_page_pv"></span>reading
+		  
+		  
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>对于编程思想中很常见的<strong>委托</strong>(Delegation)之前虽然大概理解，但对于一些细节上的区别还是有些模糊，今天复习时恰好看到，将一些自己的简单理解记录下来，以下内容有自己的理解，也有网上查阅资料后的结果。<br>委派这个概念其实平时写代码时大都有用到，只是没有刻意去理解，这个概念可以细分为：<br><a id="more"></a>     </p>
+<ol>
+<li>临时性委派(Dependency)<br>这是最简单的一种委派方式，调用类里的方法(use a),即在一个类中使用另一个类而不实际将他作为自身属性<br><img src="/2018/06/16/关于委托-Delegation-的个人理解/1.png" alt="">   </li>
+<li>永久性委派（Association）<br>类之中有其它类的具体实例来作为一个变量（has a）<br><img src="/2018/06/16/关于委托-Delegation-的个人理解/2.png" alt="">   </li>
+<li>组合(Composition)<br>这是更强的委托类型，将一些简单的对象组合为一个更复杂的对象(is part of)<br><img src="/2018/06/16/关于委托-Delegation-的个人理解/3.png" alt="">   </li>
+<li>聚合(Aggregation)<br>这种类型可以看作has a，聚合将外部传入的参数对象作为自身的一部分，和组合相似而又有一些区别<br><img src="/2018/06/16/关于委托-Delegation-的个人理解/4.png" alt="">   </li>
+</ol>
+<p>其中组合和聚合这两种类型之前我一直没有彻底区分开，明白后发现其实还是很简单的<br>若谈这两种类型的强弱，组合应该是强于聚合的，在类图中组合是以实心菱形表示，而聚合以空心表示。<br><img src="/2018/06/16/关于委托-Delegation-的个人理解/5.png" alt="Composition"><br><img src="/2018/06/16/关于委托-Delegation-的个人理解/6.png" alt="Aggregation"><br>组合表示的是(part-of)，也就是说，组合中的组件脱离了整体是没有意义的，例如上第三点的例图中，菜单Menu脱离了窗口window是没有意义的，他没有独立存在的必要，所以在组合中组件是在内部创建的。<br>而聚合不同，聚合内部的对象是可以脱离整体存在的。举例来说，一个大学中可以有很多个部门，而部门中有很多教授，如果大学不存在了，那么部门显然也无法独立存在。但教授们即使大学不存在也依旧可以独立存在。这可以理解为组合和聚合的区别。<br>简单来说，组合和聚合的组建对象生命周期不同，组合的类一旦整体对象被回收，则内部组件也就不存在了。但聚合不同，聚合的组件可以独立于整体。<br>其实可以将组合看作更强的聚合，在实际设计中，应该稍微慎重一点选择使用组合还是聚合。<br>以上是我个人对于这个问题的一点理解，如有错误，欢迎指正。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/概念/" rel="tag"># 概念</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/13/对于Java中HashCode-方法的理解/" rel="next" title="对于Java中HashCode()和equals()方法的理解">
+                <i class="fa fa-chevron-left"></i> 对于Java中HashCode()和equals()方法的理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
