@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="java,概念," />
 
 
 
@@ -79,20 +79,26 @@
 
 
 
-<meta name="description" content="关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。">
-<meta name="keywords" content="java">
+<meta name="description" content="S.O.L.I.D 原则是面向对象设计(OOD)和面向对象编程(OOP)中的几个非常重要且值得在程序设计中考虑的编码原则(Programming Priciple)的首字母缩写。今天借复习总结一下这几个原则的基本原理，方便以后翻看。        Acronym English Name     SRP The Single Responsibility Principle 单一责任原则   OC">
+<meta name="keywords" content="java,概念">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅析Java中的final修饰符">
-<meta property="og:url" content="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/index.html">
+<meta property="og:title" content="SOLID 原则浅析">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/index.html">
 <meta property="og:site_name" content="omnitrix&#39;s Blog">
-<meta property="og:description" content="关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。">
+<meta property="og:description" content="S.O.L.I.D 原则是面向对象设计(OOD)和面向对象编程(OOP)中的几个非常重要且值得在程序设计中考虑的编码原则(Programming Priciple)的首字母缩写。今天借复习总结一下这几个原则的基本原理，方便以后翻看。        Acronym English Name     SRP The Single Responsibility Principle 单一责任原则   OC">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/1.PNG">
-<meta property="og:updated_time" content="2018-06-12T14:12:20.832Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/2.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/3.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/4.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/5.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/6.PNG">
+<meta property="og:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/7.PNG">
+<meta property="og:updated_time" content="2018-06-17T15:17:13.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅析Java中的final修饰符">
-<meta name="twitter:description" content="关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/1.PNG">
+<meta name="twitter:title" content="SOLID 原则浅析">
+<meta name="twitter:description" content="S.O.L.I.D 原则是面向对象设计(OOD)和面向对象编程(OOP)中的几个非常重要且值得在程序设计中考虑的编码原则(Programming Priciple)的首字母缩写。今天借复习总结一下这几个原则的基本原理，方便以后翻看。        Acronym English Name     SRP The Single Responsibility Principle 单一责任原则   OC">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/17/SOLID-原则浅析/1.png">
 
 
 
@@ -122,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/17/SOLID-原则浅析/"/>
 
 
 
 
 
-  <title>浅析Java中的final修饰符 | omnitrix's Blog</title>
+  <title>SOLID 原则浅析 | omnitrix's Blog</title>
   
 
 
@@ -265,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/12/浅析Java中的final修饰符/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/17/SOLID-原则浅析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="高博为">
@@ -282,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅析Java中的final修饰符</h1>
+          <h1 class="post-title" itemprop="name headline">SOLID 原则浅析</h1>
         
 
         <div class="post-meta">
@@ -294,8 +300,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-12T21:12:11+08:00">
-                2018-06-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-17T22:13:28+08:00">
+                2018-06-17
               </time>
             
 
@@ -359,36 +365,58 @@
       
 
       
-        <p>　　关于Java中的final关键字一直以为自己已经掌握了，今天复习时才发现之前了解的并不全面，所以将一些东西记录下来，方便以后翻看。<br><a id="more"></a>   </p>
+        <p>S.O.L.I.D 原则是面向对象设计(OOD)和面向对象编程(OOP)中的几个非常重要且值得在程序设计中考虑的编码原则(Programming Priciple)的首字母缩写。今天借复习总结一下这几个原则的基本原理，方便以后翻看。    </p>
+<table>
+<thead>
+<tr>
+<th>Acronym</th>
+<th style="text-align:center">English</th>
+<th style="text-align:right">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SRP</td>
+<td style="text-align:center">The Single Responsibility Principle</td>
+<td style="text-align:right">单一责任原则</td>
+</tr>
+<tr>
+<td>OCP</td>
+<td style="text-align:center">The Open Closed Principle</td>
+<td style="text-align:right">开放封闭原则</td>
+</tr>
+<tr>
+<td>LSP</td>
+<td style="text-align:center">The Liskov Substitution Principle</td>
+<td style="text-align:right">里氏替换原则</td>
+</tr>
+<tr>
+<td>ISP</td>
+<td style="text-align:center">The Interface Segregation Principle</td>
+<td style="text-align:right">接口分离原则</td>
+</tr>
+<tr>
+<td>DIP</td>
+<td style="text-align:center">The Dependency Inversion Principle</td>
+<td style="text-align:right">依赖倒置原则</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a> 
 <ol>
-<li>final修饰类<br>当final关键字用来修饰一个类时，这个类将不能被继承。而final类中的成员变量不会受影响，可以根据需要将成员变量设置为final。<br>另外<strong>final类中的成员方法会被隐式的指定为final方法</strong>。这是我之前没有了解的。<br>在使用final修饰类的时候，还是应该注意谨慎选择，除非确定这个类真的在以后不会用来继承或者出于安全的考虑，尽量不要将类设计为final类。   </li>
-<li>final修饰方法<br>在使用final修饰方法时，一般是出于禁止该方法在以后被重写，即在子类中被覆盖(Override)。早期Java版本中，final方法会被转化为内嵌调用，但当方法过于庞大时<br>可能看不到这种转化带来的性能提升，现在的Java版本中已经不需要使用final方法进行这些优化了。<br>另外，<em>类的private方法会被隐式的指定为final方法</em>   </li>
-<li>final修饰变量<br>当final修饰一个变量时，首先如果该变量是一个原始类型，则其值一旦指定便不可更改。如果是引用类型的变量，则在指定引用后<br>便不可以让其指向另一个变量。    </li>
+<li><strong>[SRP 单一责任原则]</strong><br>这个原则可以说成：”一个类有且仅有一个职责”。这句话很好理解，SRP原则就是他字面上的意思，也许刚听到这个原则时<br>感到有些“虚”，但事实上这个原则非常重要， <em>简单且不易做到</em>。<br>都说“高内聚低耦合”。这里的”单一职责”就是指我们通常所说的“高内聚”，即一个类只完成它应该完成的职责，一旦类执行多个责任，那么显然很容易<br>出现各种各样的问题：错误难以定位，代码混乱且难以维护，责任推诿等等。一旦一个类完成多个责任，不要犹豫，立刻重构拆分他，<br>提炼基类/接口和提炼类重构将能帮助我们消除或减轻这种不良的设计。<br>一个反例：<br><img src="/2018/06/17/SOLID-原则浅析/1.png" alt=""><br>显然这是不符合SRP设计原则的，详细分析参考这里：[<a href="https://blog.csdn.net/e5max/article/details/8872182]" target="_blank" rel="noopener">https://blog.csdn.net/e5max/article/details/8872182]</a></li>
+<li><strong>[OCP 开放封闭原则]</strong><br>这个原则一言以蔽之：<strong>对扩展开放，对修改封闭</strong>。这似乎有些难以理解，对扩展开放还好说，为何对修改封闭？<br>因为我们要尽量做到添加新代码，避免对现有代码的修改。看起来上述两个特性是互相冲突的，因为通常扩展模块行为的常规方式就是修改该模块。<br>一个不能被修改的模块通常被认为其拥有着固定的行为。那么如何使这两个相反的特性共存呢？<br>&lt;<strong>“Abstraction is the Key.”</strong>&gt;<br>实现开放封闭的核心思想就是对抽象编程，而不对具体编程，因为抽象相对稳定。让类依赖于固定的抽象，所以对修改就是封闭的；而通过面向对象的继承和多态机制，<br>可以实现对抽象体的继承，通过覆写其方法来改变固有行为，实现新的扩展方法，所以对于扩展就是开放的。   </li>
+<li><strong>[LSP 里氏替换原则]</strong><br>Liskov’s 替换原则意思是：”子类型必须能够替换它们的基类型。”或者换个说法：”使用基类引用的地方必须能使用继承类的对象而不必知道它。”<br>在程序设计时，我们都知道继承会造成”紧耦合”，因此我们一般优先使用委托而不是继承。过多或者不合理的继承会导致<br>代码出现意外的错误。<br>一个例子：<br><img src="/2018/06/17/SOLID-原则浅析/2.PNG" alt=""><br><img src="/2018/06/17/SOLID-原则浅析/3.PNG" alt=""><br>我们会惊讶的(也许吧)发现结果是100而不是50.<br>这个设计显然违反了里氏替换，因为并不是所有矩形都可以用正方形代替。   </li>
 </ol>
 <ul>
-<li>1 当final修饰类中的成员变量时，成员变量必须在定义时或构造器中被赋值(局部变量只需在使用前赋值即可)。<br>final变量和普通变量有一些区别：   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args)  &#123;</span><br><span class="line">        String a = &quot;hello2&quot;;  </span><br><span class="line">        final String b = &quot;hello&quot;;</span><br><span class="line">        String d = &quot;hello&quot;;</span><br><span class="line">        String c = b + 2;  </span><br><span class="line">        String e = d + 2;</span><br><span class="line">        System.out.println((a == c));</span><br><span class="line">        System.out.println((a == e));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>如果没有LSP，类继承就会混乱；如果子类作为一个参数传递给方法，将会出现未知行为；</li>
+<li>如果没有LSP，适用与基类的单元测试将不能成功用于测试子类；   </li>
 </ul>
-<p>结果是第一个输出为true，而第二个为false，这是因为final变量如果是基本类型或者String，则如果在编译期间就能得到值，便会被编译器<br>作为编译期常量处理。这样在需要使用这个变量时便相当于直接访问这个常量而不需要运行时确定。   </p>
-<ul>
-<li><p>2 要注意final修饰的引用型变量是可以改变其值的<br>被final修饰的引用型变量可以在运行期间改变其值：     </p>
-<pre><code>class MyTest {
-
-  public MyTest() {
-  }
-
-  public final List&lt;Integer&gt; alist = new ArrayList&lt;&gt;();
-
-  public static void main(String[] args) {
-      MyTest subTest = new MyTest();
-      List&lt;Integer&gt; mylist = subTest.alist;
-      mylist.add(1);
-      System.out.println(mylist);
-  }
-}    
-</code></pre><p>这段测试代码的运行结果如下：<br><img src="/2018/06/12/浅析Java中的final修饰符/1.PNG" alt="运行结果"><br>因为被final修饰的引用型变量只是不能在初次赋值指向别的对象，但其本身如果是可变的则可以改变自身的内容。</p>
-</li>
-</ul>
+<ol start="4">
+<li><strong>[ISP 接口分离原则]</strong><br>接口分离原则可以提高可复用性，因为接口包含太多的方法会降低其可用性，像这种包含了无用方法的”胖接口”会增加类之间的耦合。<br>如果一个类想实现该接口,那么它需要实现所有的方法,尽管有些对它来说可能完全没用，所以这样做会在系统中引入不必要的复杂度，降低代码的可维护性或鲁棒性。<br>尽管可以先写一个抽象类，将无用方法置空，而在子类中完成有用的方法，但这显然过于麻烦。接口分离原则确保实现的接口有它们共同的职责,它们是明确的,易理解的,可复用的.<br><strong>如果一个接口包含了过多的方法，应该通过分离接口将其拆分。</strong><br><img src="/2018/06/17/SOLID-原则浅析/4.PNG" alt=""><br>这就是一个明显的违反了ISP原则的胖接口。<br>诚然这个接口包含的是很普遍的方法，但是对于机器人来说，eat()方法完全无用，为了实现这个接口他需要<br>实现完全无用的eat()方法，所以我们需要将这个接口拆分。<br><img src="/2018/06/17/SOLID-原则浅析/5.PNG" alt=""><br>这样一来，接口的可重用性就高了很多，变得非常灵活。因此，如果我们想要获得可重用的方案，就应当遵循接口分离原则，把接口定义成仅包含必要的部分，以便在任何需要该接口功能的地方复用这个接口。   </li>
+<li><strong>[DIP 依赖转置原则]</strong><br>这个原则的意思是：高层模块不应该依赖底层模块，两者都应该依赖其抽象。抽象不应该依赖于实现细节,实现细节应该依赖于抽象。<br>这句话我一开始一头雾水，并不理解。<br>其实还是 <em>面向接口编程，不要面向实现编程</em> 的内在要求。<br>一个简单的例子：<br><img src="/2018/06/17/SOLID-原则浅析/6.PNG" alt=""><br><img src="/2018/06/17/SOLID-原则浅析/7.PNG" alt=""><br>这样一来就可以将查找器更改为XmEmployeeFinder，DBEmployeeFinder，FlatFileEmployeeFinder，MockEmployeeFinder…   </li>
+</ol>
+<p>遵循这些经典的设计原则可以帮我们设计出高复用性，简洁而易维护的代码，这是他们之所以经典的原因。</p>
 
       
     </div>
@@ -408,6 +436,8 @@
           
             <a href="/tags/java/" rel="tag"># java</a>
           
+            <a href="/tags/概念/" rel="tag"># 概念</a>
+          
         </div>
       
 
@@ -419,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/10/关于java中synchronized关键字的理解/" rel="next" title="关于java中synchronized关键字的理解">
-                <i class="fa fa-chevron-left"></i> 关于java中synchronized关键字的理解
+              <a href="/2018/06/16/关于委托-Delegation-的个人理解/" rel="next" title="关于委托(Delegation)的个人理解">
+                <i class="fa fa-chevron-left"></i> 关于委托(Delegation)的个人理解
               </a>
             
           </div>
@@ -428,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/13/对于Java中HashCode-方法的理解/" rel="prev" title="对于Java中HashCode()和equals()方法的理解">
-                对于Java中HashCode()和equals()方法的理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
